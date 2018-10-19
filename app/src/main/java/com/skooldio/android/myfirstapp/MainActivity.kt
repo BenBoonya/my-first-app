@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var randomButton: Button
     private lateinit var numberTextView: TextView
     private lateinit var layout: ConstraintLayout
+    private lateinit var fab: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         countButton = findViewById(R.id.countButton)
         randomButton = findViewById(R.id.randomButton)
         numberTextView = findViewById(R.id.numberTextView)
+        fab = findViewById(R.id.floatingActionButton)
 
         initUi()
     }
@@ -47,7 +49,6 @@ class MainActivity : AppCompatActivity() {
             updateBackgroundColor(randomInt)
         }
 
-        val fab: FloatingActionButton = findViewById(R.id.floatingActionButton)
         fab.setOnClickListener {
             navigateToSecondActivity()
         }

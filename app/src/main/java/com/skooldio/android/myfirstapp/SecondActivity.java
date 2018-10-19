@@ -33,6 +33,7 @@ public class SecondActivity extends AppCompatActivity {
 
     private void initUi() {
         numberTextView.setText("0");
+        updateBackgroundColor(0);
 
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +88,9 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     private Boolean isPrimeNumber(Integer number) {
+        if (number <= 1) {
+            return false;
+        }
         for (int i = 2; i <= number / 2; ++i) {
             if (number % i == 0) {
                 return false;
