@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -60,13 +61,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) {
+        val toastMessage: String
         layout.setBackgroundColor(when (number) {
-            in 1..10 -> ContextCompat.getColor(this, android.R.color.holo_red_dark)
-            in 11..20 -> ContextCompat.getColor(this, android.R.color.holo_green_dark)
-            in 21..30 -> ContextCompat.getColor(this, android.R.color.holo_blue_dark)
-            in 31..40 -> ContextCompat.getColor(this, android.R.color.holo_orange_dark)
-            in 41..50 -> ContextCompat.getColor(this, android.R.color.holo_purple)
-            else -> ContextCompat.getColor(this, android.R.color.black)
+            in 1..10 -> {
+                toastMessage = "1 - 10"
+                ContextCompat.getColor(this, android.R.color.holo_red_dark)
+            }
+            in 11..20 -> {
+                toastMessage = "11 - 20"
+                ContextCompat.getColor(this, android.R.color.holo_green_dark)
+            }
+            in 21..30 -> {
+                toastMessage = "21 - 30"
+                ContextCompat.getColor(this, android.R.color.holo_blue_dark)
+            }
+            in 31..40 -> {
+                toastMessage = "31 - 40"
+                ContextCompat.getColor(this, android.R.color.holo_orange_dark)
+            }
+            in 41..50 -> {
+                toastMessage = "41 - 50"
+                ContextCompat.getColor(this, android.R.color.holo_purple)
+            }
+            else -> {
+                toastMessage = "Other"
+                ContextCompat.getColor(this, android.R.color.black)
+            }
         })
+        Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show()
     }
 }
