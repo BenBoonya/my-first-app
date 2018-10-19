@@ -1,7 +1,9 @@
 package com.skooldio.android.myfirstapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
+import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
@@ -44,6 +46,11 @@ class MainActivity : AppCompatActivity() {
             numberTextView.text = randomInt.toString()
             updateBackgroundColor(randomInt)
         }
+
+        val fab: FloatingActionButton = findViewById(R.id.floatingActionButton)
+        fab.setOnClickListener {
+            navigateToSecondActivity()
+        }
     }
 
     private fun randomInt(maximum: Int): Int {
@@ -68,5 +75,9 @@ class MainActivity : AppCompatActivity() {
             in 41..50 -> ContextCompat.getColor(this, android.R.color.holo_purple)
             else -> ContextCompat.getColor(this, android.R.color.black)
         })
+    }
+
+    private fun navigateToSecondActivity() {
+        startActivity(Intent(this, SecondActivity::class.java))
     }
 }
