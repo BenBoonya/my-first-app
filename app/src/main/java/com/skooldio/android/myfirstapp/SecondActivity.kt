@@ -50,27 +50,25 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) {
-        val colorRes: Int
         val toastMessage: String
-        when {
+        layout.setBackgroundColor(when {
             isPrimeNumber(number) -> {
-                colorRes = ContextCompat.getColor(this, android.R.color.black)
                 toastMessage = "Prime Number"
+                ContextCompat.getColor(this, android.R.color.black)
             }
             isEven(number) -> {
-                colorRes = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
                 toastMessage = "Even Number"
+                ContextCompat.getColor(this, android.R.color.holo_blue_dark)
             }
             isOdd(number) -> {
-                colorRes = ContextCompat.getColor(this, android.R.color.holo_red_dark)
                 toastMessage = "Odd Number"
+                ContextCompat.getColor(this, android.R.color.holo_red_dark)
             }
             else -> {
                 toastMessage = "Unknown"
-                colorRes = ContextCompat.getColor(this, android.R.color.black)
+                ContextCompat.getColor(this, android.R.color.black)
             }
-        }
-        layout.setBackgroundColor(colorRes)
+        })
         Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show()
     }
 
