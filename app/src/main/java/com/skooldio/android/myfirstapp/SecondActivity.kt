@@ -11,20 +11,14 @@ import java.util.*
 
 class SecondActivity : AppCompatActivity() {
 
-    lateinit var resetButton: Button
-    lateinit var randomButton: Button
-    lateinit var numberTextView: TextView
-    lateinit var layout: ConstraintLayout
+    val resetButton: Button by lazy { findViewById<Button>(R.id.resetButton) }
+    val randomButton: Button by lazy { findViewById<Button>(R.id.randomButton) }
+    val numberTextView: TextView by lazy { findViewById<TextView>(R.id.numberTextView) }
+    val layout: ConstraintLayout by lazy { findViewById<ConstraintLayout>(R.id.constraintLayout) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-
-        layout = findViewById(R.id.constraintLayout)
-        resetButton = findViewById(R.id.resetButton)
-        randomButton = findViewById(R.id.randomButton)
-        numberTextView = findViewById(R.id.numberTextView)
-
         initUi()
     }
 
@@ -72,13 +66,11 @@ class SecondActivity : AppCompatActivity() {
         Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show()
     }
 
-    private fun isEven(number: Int): Boolean {
-        return number % 2 == 0
-    }
+    private fun isEven(number: Int) = number % 2 == 0
 
-    private fun isOdd(number: Int): Boolean {
-        return number % 2 != 0
-    }
+
+    private fun isOdd(number: Int) = number % 2 != 0
+
 
     private fun isPrimeNumber(number: Int): Boolean {
         if (number <= 1) {
