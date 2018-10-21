@@ -63,29 +63,33 @@ class MainActivity : AppCompatActivity() {
     private fun updateBackgroundColor(number: Int) {
         layout.setBackgroundColor(when (number) {
             in 1..10 -> {
-                Toast.makeText(this, "1 - 10", Toast.LENGTH_SHORT).show()
+                toast("1 - 10 (Long)", Toast.LENGTH_LONG)
                 ContextCompat.getColor(this, android.R.color.holo_red_dark)
             }
             in 11..20 -> {
-                Toast.makeText(this, "11 - 20", Toast.LENGTH_SHORT).show()
+                toast("11 - 20 (Short)")
                 ContextCompat.getColor(this, android.R.color.holo_green_dark)
             }
             in 21..30 -> {
-                Toast.makeText(this, "21 - 30", Toast.LENGTH_SHORT).show()
+                toast("21 - 30 (Long)", Toast.LENGTH_LONG)
                 ContextCompat.getColor(this, android.R.color.holo_blue_dark)
             }
             in 31..40 -> {
-                Toast.makeText(this, "31 - 40", Toast.LENGTH_SHORT).show()
+                toast("31 - 40 (Short)")
                 ContextCompat.getColor(this, android.R.color.holo_orange_dark)
             }
             in 41..50 -> {
-                Toast.makeText(this, "41 - 50", Toast.LENGTH_SHORT).show()
+                toast("41 - 50 (Long)", Toast.LENGTH_LONG)
                 ContextCompat.getColor(this, android.R.color.holo_purple)
             }
             else -> {
-                Toast.makeText(this, "Other", Toast.LENGTH_SHORT).show()
+                toast("Other (Short)")
                 ContextCompat.getColor(this, android.R.color.black)
             }
         })
+    }
+
+    fun toast(message: String, length: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(this, message, length).show()
     }
 }
