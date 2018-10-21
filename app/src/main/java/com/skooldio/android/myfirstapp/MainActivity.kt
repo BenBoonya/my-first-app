@@ -61,33 +61,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) {
-        val toastMessage: String
         layout.setBackgroundColor(when (number) {
             in 1..10 -> {
-                toastMessage = "1 - 10"
+                Toast.makeText(this, "1 - 10", Toast.LENGTH_SHORT).show()
                 ContextCompat.getColor(this, android.R.color.holo_red_dark)
             }
             in 11..20 -> {
-                toastMessage = "11 - 20"
+                Toast.makeText(this, "11 - 20", Toast.LENGTH_SHORT).show()
                 ContextCompat.getColor(this, android.R.color.holo_green_dark)
             }
             in 21..30 -> {
-                toastMessage = "21 - 30"
+                Toast.makeText(this, "21 - 30", Toast.LENGTH_SHORT).show()
                 ContextCompat.getColor(this, android.R.color.holo_blue_dark)
             }
             in 31..40 -> {
-                toastMessage = "31 - 40"
+                Toast.makeText(this, "31 - 40", Toast.LENGTH_SHORT).show()
                 ContextCompat.getColor(this, android.R.color.holo_orange_dark)
             }
             in 41..50 -> {
-                toastMessage = "41 - 50"
+                Toast.makeText(this, "41 - 50", Toast.LENGTH_SHORT).show()
                 ContextCompat.getColor(this, android.R.color.holo_purple)
             }
             else -> {
-                toastMessage = "Other"
+                Toast.makeText(this, "Other", Toast.LENGTH_SHORT).show()
                 ContextCompat.getColor(this, android.R.color.black)
             }
         })
-        Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show()
     }
 }
