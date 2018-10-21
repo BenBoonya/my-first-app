@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.skooldio.android.myfirstapp.extension.toast
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -87,9 +88,5 @@ class MainActivity : AppCompatActivity() {
                 ContextCompat.getColor(this, android.R.color.black)
             }
         })
-    }
-
-    fun toast(message: String, length: Int = Toast.LENGTH_SHORT) {
-        Toast.makeText(this, message, length).show()
     }
 }
