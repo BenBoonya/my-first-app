@@ -2,33 +2,17 @@ package com.skooldio.android.myfirstapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.widget.Button
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var resetButton: Button
-    private lateinit var countButton: Button
-    private lateinit var randomButton: Button
-    private lateinit var numberTextView: TextView
-    private lateinit var layout: ConstraintLayout
-    private lateinit var fab: FloatingActionButton
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        layout = findViewById(R.id.constraintLayout)
-        resetButton = findViewById(R.id.resetButton)
-        countButton = findViewById(R.id.countButton)
-        randomButton = findViewById(R.id.randomButton)
-        numberTextView = findViewById(R.id.numberTextView)
-        fab = findViewById(R.id.floatingActionButton)
 
         initUi()
     }
@@ -49,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             updateBackgroundColor(randomInt)
         }
 
-        fab.setOnClickListener {
+        floatingActionButton.setOnClickListener {
             navigateToSecondActivity()
         }
     }
@@ -68,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) {
-        layout.setBackgroundColor(when (number) {
+        constraintLayout.setBackgroundColor(when (number) {
             in 1..10 -> ContextCompat.getColor(this, android.R.color.holo_red_dark)
             in 11..20 -> ContextCompat.getColor(this, android.R.color.holo_green_dark)
             in 21..30 -> ContextCompat.getColor(this, android.R.color.holo_blue_dark)
