@@ -1,32 +1,19 @@
 package com.skooldio.android.myfirstapp
 
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.skooldio.android.myfirstapp.extension.toast
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var resetButton: Button
-    private lateinit var countButton: Button
-    private lateinit var randomButton: Button
-    private lateinit var numberTextView: TextView
-    private lateinit var layout: ConstraintLayout
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        layout = findViewById(R.id.constraintLayout)
-        resetButton = findViewById(R.id.resetButton)
-        countButton = findViewById(R.id.countButton)
-        randomButton = findViewById(R.id.randomButton)
-        numberTextView = findViewById(R.id.numberTextView)
 
         initUi()
     }
@@ -62,7 +49,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) {
-        layout.setBackgroundColor(when (number) {
+        //the component name should be exactly the same as id in XML
+        constraintLayout.setBackgroundColor(when (number) {
             in 1..10 -> {
                 toast("1 - 10 (Long)", Toast.LENGTH_LONG)
                 ContextCompat.getColor(this, android.R.color.holo_red_dark)
