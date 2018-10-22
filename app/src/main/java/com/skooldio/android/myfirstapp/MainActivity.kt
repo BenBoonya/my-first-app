@@ -1,8 +1,11 @@
 package com.skooldio.android.myfirstapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -14,6 +17,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initUi()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_stat, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.stat_screen) {
+            navigateToStatScreen()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initUi() {
@@ -56,5 +71,9 @@ class MainActivity : AppCompatActivity() {
             in 41..50 -> ContextCompat.getColor(this, android.R.color.holo_purple)
             else -> ContextCompat.getColor(this, android.R.color.black)
         })
+    }
+
+    private fun navigateToStatScreen() {
+        startActivity(Intent(this, StatActivity::class.java))
     }
 }
