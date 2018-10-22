@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import android.widget.Toast
-import com.skooldio.android.myfirstapp.extension.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -51,30 +49,12 @@ class MainActivity : AppCompatActivity() {
     private fun updateBackgroundColor(number: Int) {
         //the component name should be exactly the same as id in XML
         constraintLayout.setBackgroundColor(when (number) {
-            in 1..10 -> {
-                toast("1 - 10 (Long)", Toast.LENGTH_LONG)
-                ContextCompat.getColor(this, android.R.color.holo_red_dark)
-            }
-            in 11..20 -> {
-                toast("11 - 20 (Short)")
-                ContextCompat.getColor(this, android.R.color.holo_green_dark)
-            }
-            in 21..30 -> {
-                toast("21 - 30 (Long)", Toast.LENGTH_LONG)
-                ContextCompat.getColor(this, android.R.color.holo_blue_dark)
-            }
-            in 31..40 -> {
-                toast("31 - 40 (Short)")
-                ContextCompat.getColor(this, android.R.color.holo_orange_dark)
-            }
-            in 41..50 -> {
-                toast("41 - 50 (Long)", Toast.LENGTH_LONG)
-                ContextCompat.getColor(this, android.R.color.holo_purple)
-            }
-            else -> {
-                toast("Other (Short)")
-                ContextCompat.getColor(this, android.R.color.black)
-            }
+            in 1..10 -> ContextCompat.getColor(this, android.R.color.holo_red_dark)
+            in 11..20 -> ContextCompat.getColor(this, android.R.color.holo_green_dark)
+            in 21..30 -> ContextCompat.getColor(this, android.R.color.holo_blue_dark)
+            in 31..40 -> ContextCompat.getColor(this, android.R.color.holo_orange_dark)
+            in 41..50 -> ContextCompat.getColor(this, android.R.color.holo_purple)
+            else -> ContextCompat.getColor(this, android.R.color.black)
         })
     }
 }
