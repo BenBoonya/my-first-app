@@ -20,6 +20,7 @@ class StatActivity : AppCompatActivity() {
 
     private fun initUi() {
         firstRangeTextView.text = sharePreference.getInt(MainActivity.FIRST_RANGE_COUNTER, 0).toString()
+        // TODO Update counter of other field
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
