@@ -1,22 +1,19 @@
 package com.skooldio.android.myfirstapp
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
-
-import java.util.Random
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal var resetButton: Button
-    internal var countButton: Button
-    internal var randomButton: Button
-    internal var numberTextView: TextView
-    internal var layout: ConstraintLayout
+    internal var resetButton: Button? = null
+    internal var countButton: Button? = null
+    internal var randomButton: Button? = null
+    internal var numberTextView: TextView? = null
+    internal var layout: ConstraintLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,18 +29,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        numberTextView.text = "0"
+        numberTextView?.text = "0"
 
-        countButton.setOnClickListener { countMe(numberTextView) }
+        countButton?.setOnClickListener { countMe(numberTextView!!) }
 
-        resetButton.setOnClickListener {
-            numberTextView.text = "0"
+        resetButton?.setOnClickListener {
+            numberTextView?.text = "0"
             updateBackgroundColor(0)
         }
 
-        randomButton.setOnClickListener {
+        randomButton?.setOnClickListener {
             val randomInt = randomInt(50)
-            numberTextView.text = randomInt.toString()
+            numberTextView?.text = randomInt.toString()
             updateBackgroundColor(randomInt)
         }
     }
@@ -55,13 +52,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun countMe(textView: TextView) {
         val countString = textView.text.toString()
-        var count: Int? = Integer.parseInt(countString)
+        var count: Int = Integer.parseInt(countString)
         count++
         updateBackgroundColor(count)
-        textView.text = count!!.toString()
+        textView.text = count.toString()
     }
 
-    private fun updateBackgroundColor(number: Int?) {
+    private fun updateBackgroundColor(number: Int) {
         val resource = resources
         val colorRes: Int?
         if (number > 0 && number <= 10) {
@@ -77,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             colorRes = resource.getColor(android.R.color.black)
         }
-        layout.setBackgroundColor(colorRes)
+        layout?.setBackgroundColor(colorRes)
     }
 
 }
