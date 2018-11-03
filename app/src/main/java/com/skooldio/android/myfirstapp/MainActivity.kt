@@ -59,31 +59,30 @@ class MainActivity : AppCompatActivity() {
         textView.text = count.toString()
     }
 
-    //TODO edit this function to show toast according to the range that the number is in
     private fun updateBackgroundColor(number: Int) =
             layout?.setBackgroundColor(when (number) {
                 in 1..10 -> {
-                    Toast.makeText(this, "1..10", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "1..10 (Long)", Toast.LENGTH_LONG).show()
                     resources.getColor(android.R.color.holo_red_dark)
                 }
                 in 11..20 -> {
-                    Toast.makeText(this, "11..20", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "11..20 (Short)", Toast.LENGTH_SHORT).show()
                     resources.getColor(android.R.color.holo_green_dark)
                 }
                 in 21..30 -> {
-                    Toast.makeText(this, "21..30", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "21..30 (Long)", Toast.LENGTH_LONG).show()
                     resources.getColor(android.R.color.holo_blue_dark)
                 }
                 in 31..40 -> {
-                    Toast.makeText(this, "31..40", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "31..40 (Short)", Toast.LENGTH_SHORT).show()
                     resources.getColor(android.R.color.holo_orange_dark)
                 }
                 in 41..50 -> {
-                    Toast.makeText(this, "41..50", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "41..50 (Long)", Toast.LENGTH_LONG).show()
                     resources.getColor(android.R.color.holo_purple)
                 }
                 else -> {
-                    Toast.makeText(this, "other", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "other (short)", Toast.LENGTH_SHORT).show()
                     resources.getColor(android.R.color.black)
                 }
             })
