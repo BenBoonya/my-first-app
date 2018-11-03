@@ -61,18 +61,13 @@ class MainActivity : AppCompatActivity() {
     private fun updateBackgroundColor(number: Int) {
         val resource = resources
         val colorRes: Int?
-        if (number > 0 && number <= 10) {
-            colorRes = resource.getColor(android.R.color.holo_red_dark)
-        } else if (number > 10 && number <= 20) {
-            colorRes = resource.getColor(android.R.color.holo_green_dark)
-        } else if (number > 20 && number <= 30) {
-            colorRes = resource.getColor(android.R.color.holo_blue_dark)
-        } else if (number > 30 && number <= 40) {
-            colorRes = resource.getColor(android.R.color.holo_orange_dark)
-        } else if (number > 40 && number <= 50) {
-            colorRes = resource.getColor(android.R.color.holo_purple)
-        } else {
-            colorRes = resource.getColor(android.R.color.black)
+        colorRes = when (number) {
+            in 1..10 -> resource.getColor(android.R.color.holo_red_dark)
+            in 11..20 -> resource.getColor(android.R.color.holo_green_dark)
+            in 21..30 -> resource.getColor(android.R.color.holo_blue_dark)
+            in 31..40 -> resource.getColor(android.R.color.holo_orange_dark)
+            in 41..50 -> resource.getColor(android.R.color.holo_purple)
+            else -> resource.getColor(android.R.color.black)
         }
         layout?.setBackgroundColor(colorRes)
     }
