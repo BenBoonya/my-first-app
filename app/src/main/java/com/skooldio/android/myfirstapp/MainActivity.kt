@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         textView.text = count.toString()
     }
 
+    //TODO edit this function to show toast according to the range that the number is in
     private fun updateBackgroundColor(number: Int) {
         val resource = resources
         val colorRes = when (number) {
