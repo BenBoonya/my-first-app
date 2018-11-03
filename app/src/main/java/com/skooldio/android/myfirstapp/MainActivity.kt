@@ -60,8 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateBackgroundColor(number: Int) {
         val resource = resources
-        val colorRes: Int?
-        colorRes = when (number) {
+        val colorRes = when (number) {
             in 1..10 -> resource.getColor(android.R.color.holo_red_dark)
             in 11..20 -> resource.getColor(android.R.color.holo_green_dark)
             in 21..30 -> resource.getColor(android.R.color.holo_blue_dark)
