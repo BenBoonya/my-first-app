@@ -58,15 +58,13 @@ class MainActivity : AppCompatActivity() {
         textView.text = count.toString()
     }
 
-    private fun updateBackgroundColor(number: Int) {
-        layout?.setBackgroundColor(when (number) {
-            in 1..10 -> resources.getColor(android.R.color.holo_red_dark)
-            in 11..20 -> resources.getColor(android.R.color.holo_green_dark)
-            in 21..30 -> resources.getColor(android.R.color.holo_blue_dark)
-            in 31..40 -> resources.getColor(android.R.color.holo_orange_dark)
-            in 41..50 -> resources.getColor(android.R.color.holo_purple)
-            else -> resources.getColor(android.R.color.black)
-        })
-    }
-
+    private fun updateBackgroundColor(number: Int) =
+            layout?.setBackgroundColor(when (number) {
+                in 1..10 -> resources.getColor(android.R.color.holo_red_dark)
+                in 11..20 -> resources.getColor(android.R.color.holo_green_dark)
+                in 21..30 -> resources.getColor(android.R.color.holo_blue_dark)
+                in 31..40 -> resources.getColor(android.R.color.holo_orange_dark)
+                in 41..50 -> resources.getColor(android.R.color.holo_purple)
+                else -> resources.getColor(android.R.color.black)
+            })
 }
