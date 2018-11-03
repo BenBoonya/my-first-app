@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun randomInt(maximum: Int?): Int {
+    private fun randomInt(maximum: Int): Int {
         val random = Random()
-        return random.nextInt(maximum!!) + 1
+        return random.nextInt(maximum) + 1
     }
 
     private fun countMe(textView: TextView) {
