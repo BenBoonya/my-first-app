@@ -12,11 +12,11 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal var resetButton: Button? = null
-    internal var countButton: Button? = null
-    internal var randomButton: Button? = null
-    internal var numberTextView: TextView? = null
-    internal var layout: ConstraintLayout? = null
+    internal lateinit var resetButton: Button
+    internal lateinit var countButton: Button
+    internal lateinit var randomButton: Button
+    internal lateinit var numberTextView: TextView
+    internal lateinit var layout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,18 +32,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUi() {
-        numberTextView?.text = "0"
+        numberTextView.text = "0"
 
-        countButton?.setOnClickListener { countMe(numberTextView!!) }
+        countButton.setOnClickListener { countMe(numberTextView) }
 
-        resetButton?.setOnClickListener {
-            numberTextView?.text = "0"
+        resetButton.setOnClickListener {
+            numberTextView.text = "0"
             updateBackgroundColor(0)
         }
 
-        randomButton?.setOnClickListener {
+        randomButton.setOnClickListener {
             val randomInt = randomInt(50)
-            numberTextView?.text = randomInt.toString()
+            numberTextView.text = randomInt.toString()
             updateBackgroundColor(randomInt)
         }
     }
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) =
-            layout?.setBackgroundColor(when (number) {
+            layout.setBackgroundColor(when (number) {
                 in 1..10 -> {
                     toast("1..10 (Long)", Toast.LENGTH_LONG)
                     getColorCompat(android.R.color.holo_red_dark)
