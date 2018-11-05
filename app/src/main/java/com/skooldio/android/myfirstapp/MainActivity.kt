@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.skooldio.android.myfirstapp.extension.getColorCompat
 import com.skooldio.android.myfirstapp.extension.toast
 import java.util.*
 
@@ -64,27 +65,27 @@ class MainActivity : AppCompatActivity() {
             layout?.setBackgroundColor(when (number) {
                 in 1..10 -> {
                     toast("1..10 (Long)", Toast.LENGTH_LONG)
-                    resources.getColor(android.R.color.holo_red_dark)
+                    getColorCompat(android.R.color.holo_red_dark)
                 }
                 in 11..20 -> {
                     toast("11..20 (Short)")
-                    resources.getColor(android.R.color.holo_green_dark)
+                    getColorCompat(android.R.color.holo_green_dark)
                 }
                 in 21..30 -> {
                     toast("21..30 (Long)", Toast.LENGTH_LONG)
-                    resources.getColor(android.R.color.holo_blue_dark)
+                    getColorCompat(android.R.color.holo_blue_dark)
                 }
                 in 31..40 -> {
                     toast("31..40 (Short)")
-                    resources.getColor(android.R.color.holo_orange_dark)
+                    getColorCompat(android.R.color.holo_orange_dark)
                 }
                 in 41..50 -> {
                     toast("41..50 (Long)", Toast.LENGTH_LONG)
-                    resources.getColor(android.R.color.holo_purple)
+                    getColorCompat(android.R.color.holo_purple)
                 }
                 else -> {
                     toast("other (short)")
-                    resources.getColor(android.R.color.black)
+                    getColorCompat(android.R.color.black)
                 }
             })
 }
