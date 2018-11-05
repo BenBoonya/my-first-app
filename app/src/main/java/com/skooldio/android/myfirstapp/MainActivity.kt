@@ -12,38 +12,31 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal var resetButton: Button? = null
-    internal var countButton: Button? = null
-    internal var randomButton: Button? = null
-    internal var numberTextView: TextView? = null
-    internal var layout: ConstraintLayout? = null
+    internal val resetButton: Button by lazy { findViewById<Button>(R.id.resetButton) }
+    internal val countButton: Button by lazy { findViewById<Button>(R.id.countButton) }
+    internal val randomButton: Button by lazy { findViewById<Button>(R.id.randomButton) }
+    internal val numberTextView: TextView by lazy { findViewById<TextView>(R.id.numberTextView) }
+    internal val layout: ConstraintLayout by lazy { findViewById<ConstraintLayout>(R.id.constraintLayout) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        layout = findViewById(R.id.constraintLayout)
-        resetButton = findViewById(R.id.resetButton)
-        countButton = findViewById(R.id.countButton)
-        randomButton = findViewById(R.id.randomButton)
-        numberTextView = findViewById(R.id.numberTextView)
-
         initUi()
     }
 
     private fun initUi() {
-        numberTextView?.text = "0"
+        numberTextView.text = "0"
 
-        countButton?.setOnClickListener { countMe(numberTextView!!) }
+        countButton.setOnClickListener { countMe(numberTextView) }
 
-        resetButton?.setOnClickListener {
-            numberTextView?.text = "0"
+        resetButton.setOnClickListener {
+            numberTextView.text = "0"
             updateBackgroundColor(0)
         }
 
-        randomButton?.setOnClickListener {
+        randomButton.setOnClickListener {
             val randomInt = randomInt(50)
-            numberTextView?.text = randomInt.toString()
+            numberTextView.text = randomInt.toString()
             updateBackgroundColor(randomInt)
         }
     }
@@ -62,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) =
-            layout?.setBackgroundColor(when (number) {
+            layout.setBackgroundColor(when (number) {
                 in 1..10 -> {
                     toast("1..10 (Long)", Toast.LENGTH_LONG)
                     getColorCompat(android.R.color.holo_red_dark)
