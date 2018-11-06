@@ -1,47 +1,33 @@
 package com.skooldio.android.myfirstapp
 
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.skooldio.android.myfirstapp.extension.getColorCompat
 import com.skooldio.android.myfirstapp.extension.toast
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    internal var resetButton: Button? = null
-    internal var countButton: Button? = null
-    internal var randomButton: Button? = null
-    internal var numberTextView: TextView? = null
-    internal var layout: ConstraintLayout? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        layout = findViewById(R.id.constraintLayout)
-        resetButton = findViewById(R.id.resetButton)
-        countButton = findViewById(R.id.countButton)
-        randomButton = findViewById(R.id.randomButton)
-        numberTextView = findViewById(R.id.numberTextView)
-
         initUi()
     }
 
     private fun initUi() {
-        numberTextView?.text = "0"
+        numberTextView.text = "0"
 
-        countButton?.setOnClickListener { countMe(numberTextView!!) }
+        countButton.setOnClickListener { countMe(numberTextView) }
 
-        resetButton?.setOnClickListener {
+        resetButton.setOnClickListener {
             numberTextView?.text = "0"
             updateBackgroundColor(0)
         }
 
-        randomButton?.setOnClickListener {
+        randomButton.setOnClickListener {
             val randomInt = randomInt(50)
             numberTextView?.text = randomInt.toString()
             updateBackgroundColor(randomInt)
@@ -62,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) =
-            layout?.setBackgroundColor(when (number) {
+            constraintLayout?.setBackgroundColor(when (number) {
                 in 1..10 -> {
                     toast("1..10 (Long)", Toast.LENGTH_LONG)
                     getColorCompat(android.R.color.holo_red_dark)
