@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         countButton.setOnClickListener { countMe(numberTextView) }
 
         resetButton.setOnClickListener {
-            numberTextView?.text = "0"
+            numberTextView.text = "0"
             updateBackgroundColor(0)
         }
 
         randomButton.setOnClickListener {
             val randomInt = randomInt(50)
-            numberTextView?.text = randomInt.toString()
+            numberTextView.text = randomInt.toString()
             updateBackgroundColor(randomInt)
         }
     }
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateBackgroundColor(number: Int) =
-            constraintLayout?.setBackgroundColor(when (number) {
+            constraintLayout.setBackgroundColor(when (number) {
                 in 1..10 -> {
                     toast("1..10 (Long)", Toast.LENGTH_LONG)
                     getColorCompat(android.R.color.holo_red_dark)
