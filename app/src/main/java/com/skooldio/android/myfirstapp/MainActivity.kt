@@ -1,5 +1,6 @@
 package com.skooldio.android.myfirstapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
             val randomInt = randomInt(50)
             numberTextView.text = randomInt.toString()
             updateBackgroundColor(randomInt)
+        }
+
+        floatingActionButton.setOnClickListener {
+            navigateToSecondActivity()
         }
     }
 
@@ -74,4 +79,8 @@ class MainActivity : AppCompatActivity() {
                     getColorCompat(android.R.color.black)
                 }
             })
+
+    private fun navigateToSecondActivity() {
+        startActivity(Intent(this, SecondActivity::class.java))
+    }
 }
