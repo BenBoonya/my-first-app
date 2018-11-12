@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
+    <string name="label_stat_activity">Stat</string>
 </resources>

@@ -1,11 +1,12 @@
 package com.skooldio.android.myfirstapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toast
 import com.skooldio.android.myfirstapp.extension.getColorCompat
-import com.skooldio.android.myfirstapp.extension.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -15,6 +16,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initUi()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_stat, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.stat_screen) {
+            navigateToStatScreen()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initUi() {
@@ -50,28 +63,26 @@ class MainActivity : AppCompatActivity() {
     private fun updateBackgroundColor(number: Int) =
             constraintLayout.setBackgroundColor(when (number) {
                 in 1..10 -> {
-                    toast("1..10 (Long)", Toast.LENGTH_LONG)
                     getColorCompat(android.R.color.holo_red_dark)
                 }
                 in 11..20 -> {
-                    toast("11..20 (Short)")
                     getColorCompat(android.R.color.holo_green_dark)
                 }
                 in 21..30 -> {
-                    toast("21..30 (Long)", Toast.LENGTH_LONG)
                     getColorCompat(android.R.color.holo_blue_dark)
                 }
                 in 31..40 -> {
-                    toast("31..40 (Short)")
                     getColorCompat(android.R.color.holo_orange_dark)
                 }
                 in 41..50 -> {
-                    toast("41..50 (Long)", Toast.LENGTH_LONG)
                     getColorCompat(android.R.color.holo_purple)
                 }
                 else -> {
-                    toast("other (short)")
                     getColorCompat(android.R.color.black)
                 }
             })
+
+    private fun navigateToStatScreen() {
+        startActivity(Intent(this, StatActivity::class.java))
+    }
 }
