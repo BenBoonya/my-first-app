@@ -16,7 +16,11 @@ class StatActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         firstRangeTextView.text = sharePreference.getInt(MainActivity.FIRST_RANGE_COUNTER, 0).toString()
-        //TODO("not implemented") Assign value of counter to TextView
+        secondRangeTextView.text = sharePreference.getInt(MainActivity.SECOND_RANGE_COUNTER, 0).toString()
+        thirdRangeTextView.text = sharePreference.getInt(MainActivity.THIRD_RANGE_COUNTER, 0).toString()
+        fourthRangeTextView.text = sharePreference.getInt(MainActivity.FOURTH_RANGE_COUNTER, 0).toString()
+        fifthRangeTextView.text = sharePreference.getInt(MainActivity.FIFTH_RANGE_COUNTER, 0).toString()
+        otherRangeTextView.text = sharePreference.getInt(MainActivity.OTHER_COUNTER, 0).toString()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
