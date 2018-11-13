@@ -16,6 +16,7 @@ class StatActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         firstRangeTextView.text = sharePreference.getInt(MainActivity.FIRST_RANGE_COUNTER, 0).toString()
+        //TODO("not implemented") Assign value of counter to TextView
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
