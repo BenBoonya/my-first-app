@@ -111,8 +111,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun increaseCounter(key: String) {
-        var counter = sharePreference.getInt(key, 0)
-        counter++
-        sharePreference.edit().putInt(key, counter).apply()
+        with(sharePreference) {
+            var counter = getInt(key, 0)
+            counter++
+            edit().putInt(key, counter).apply()
+        }
     }
 }

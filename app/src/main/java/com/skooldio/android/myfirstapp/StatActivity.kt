@@ -15,12 +15,14 @@ class StatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_stat)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        firstRangeTextView.text = sharePreference.getInt(MainActivity.FIRST_RANGE_COUNTER, 0).toString()
-        secondRangeTextView.text = sharePreference.getInt(MainActivity.SECOND_RANGE_COUNTER, 0).toString()
-        thirdRangeTextView.text = sharePreference.getInt(MainActivity.THIRD_RANGE_COUNTER, 0).toString()
-        fourthRangeTextView.text = sharePreference.getInt(MainActivity.FOURTH_RANGE_COUNTER, 0).toString()
-        fifthRangeTextView.text = sharePreference.getInt(MainActivity.FIFTH_RANGE_COUNTER, 0).toString()
-        otherRangeTextView.text = sharePreference.getInt(MainActivity.OTHER_COUNTER, 0).toString()
+        with(sharePreference) {
+            firstRangeTextView.text = getInt(MainActivity.FIRST_RANGE_COUNTER, 0).toString()
+            secondRangeTextView.text = getInt(MainActivity.SECOND_RANGE_COUNTER, 0).toString()
+            thirdRangeTextView.text = getInt(MainActivity.THIRD_RANGE_COUNTER, 0).toString()
+            fourthRangeTextView.text = getInt(MainActivity.FOURTH_RANGE_COUNTER, 0).toString()
+            fifthRangeTextView.text = getInt(MainActivity.FIFTH_RANGE_COUNTER, 0).toString()
+            otherRangeTextView.text = getInt(MainActivity.OTHER_COUNTER, 0).toString()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
