@@ -56,9 +56,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         randomButton.setOnClickListener {
-            val randomInt = randomInt(50)
-            numberTextView.text = randomInt.toString()
-            updateBackgroundColor(randomInt)
+            randomInt(50).let {
+                numberTextView.text = it.toString()
+                updateBackgroundColor(it)
+            }
         }
     }
 
@@ -71,8 +72,10 @@ class MainActivity : AppCompatActivity() {
         val countString = textView.text.toString()
         var count: Int = Integer.parseInt(countString)
         count++
-        updateBackgroundColor(count)
-        textView.text = count.toString()
+        count.let {
+            updateBackgroundColor(it)
+            textView.text = it.toString()
+        }
     }
 
     private fun updateBackgroundColor(number: Int) =
